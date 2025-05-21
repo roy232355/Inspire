@@ -692,5 +692,93 @@
             });
         }
     </script>
+<!-- Chatbot Floating Widget -->
+<div class="fixed bottom-4 right-4 z-50">
+  <!-- Toggle Button -->
+  <button id="chatbot-toggle" class="bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-full shadow-lg hover:scale-105 transition">
+    <i class="fas fa-comment-dots text-xl"></i>
+  </button>
+
+  <!-- Chatbot Box -->
+  <div id="chatbot-box" class="hidden w-80 mt-4 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+    <div class="bg-amber-700 text-white px-4 py-2 font-bold flex justify-between items-center">
+      <span>AI Assistant</span>
+      <button onclick="closeChatbot()" class="text-white hover:text-gray-300">&times;</button>
+    </div>
+    <div id="chat-log" class="p-4 h-48 overflow-y-auto text-sm space-y-2 bg-gray-50"></div>
+    <div class="flex border-t border-gray-300">
+      <input type="text" id="chat-input" placeholder="Ask something..." class="flex-1 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 rounded-bl-lg">
+      <button onclick="sendMessage()" class="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-br-lg">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Optional Sound Alert -->
+<audio id="chat-sound" src="https://notificationsounds.com/storage/sounds/file-sounds-1150-pristine.mp3" preload="auto"></audio>
+
+<script>
+  const responses = {
+    "hello": "Hello! How can I help you today?",
+    "services": "We offer luxury interior design, renovation, and space planning services.",
+    "contact": "You can contact us at hello@inspireambiente.com or call +91 98765 43210.",
+    "portfolio": "Our portfolio includes high-end residential, commercial, and hospitality projects.",
+    "bye": "Goodbye! Feel free to reach out anytime."
+  };
+
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatBox = document.getElementById("chatbot-box");
+  const chatLog = document.getElementById("chat-log");
+  const sound = document.getElementById("chat-sound");
+
+  let autoCloseTimer;
+
+  toggleBtn.addEventListener("click", () => {
+    chatBox.classList.toggle("hidden");
+    resetAutoClose();
+  });
+
+  function closeChatbot() {
+    chatBox.classList.add("hidden");
+    clearTimeout(autoCloseTimer);
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("chat-input");
+    const msg = input.value.trim();
+    if (!msg) return;
+    appendChat("You", msg, "bg-gray-200 text-gray-800 self-end");
+    const reply = getBotReply(msg);
+    setTimeout(() => {
+      appendChat("Bot", reply, "bg-amber-100 text-amber-800 self-start");
+      sound.play();
+    }, 500);
+    input.value = "";
+    resetAutoClose();
+  }
+
+  function getBotReply(message) {
+    message = message.toLowerCase();
+    for (let key in responses) {
+      if (message.includes(key)) return responses[key];
+    }
+    return "I'm just a demo bot 😊 Ask me about services, contact, or portfolio.";
+  }
+
+  function appendChat(sender, message, style) {
+    const bubble = document.createElement("div");
+    bubble.className = `p-2 px-3 rounded-lg w-fit max-w-[80%] ${style}`;
+    bubble.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatLog.appendChild(bubble);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  function resetAutoClose() {
+    clearTimeout(autoCloseTimer);
+    autoCloseTimer = setTimeout(() => {
+      chatBox.classList.add("hidden");
+    }, 30000); // auto-close after 30 seconds
+  }
+</script>
+    
 </body>
 </html>
