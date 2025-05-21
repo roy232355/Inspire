@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div id="info">Click: Select cube | Hover: Highlight | Space: Pause</div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspire Ambiente | Premium Interior Design Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1699268066895-2b5066669aff?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #d1a570;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-couch text-3xl text-amber-700 mr-2"></i>
+                    <h1 class="text-2xl font-bold text-gray-800">Inspire <span class="text-amber-700">Ambiente</span></h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active text-gray-800 hover:text-amber-700">Home</a>
+                    <a href="#services" class="nav-link text-gray-800 hover:text-amber-700">Services</a>
+                    <a href="#projects" class="nav-link text-gray-800 hover:text-amber-700">Projects</a>
+                    <a href="#about" class="nav-link text-gray-800 hover:text-amber-700">About</a>
+                    <a href="#location" class="nav-link text-gray-800 hover:text-amber-700">Location</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-amber-700">Contact</a>
+                </nav>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-800 hover:text-amber-700">Home</a>
+                <a href="#services" class="block py-2 text-gray-800 hover:text-amber-700">Services</a>
+                <a href="#projects" class="block py-2 text-gray-800 hover:text-amber-700">Projects</a>
+                <a href="#about" class="block py-2 text-gray-800 hover:text-amber-700">About</a>
+                <a href="#location" class="block py-2 text-gray-800 hover:text-amber-700">Location</a>
+                <a href="#contact" class="block py-2 text-gray-800 hover:text-amber-700">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Transform Your Space With Elegance</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Crafting bespoke interiors that reflect your personality and elevate your lifestyle.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-full font-semibold transition duration-300">Get a Free Consultation</a>
+                <a href="#projects" class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-800 text-white px-8 py-3 rounded-full font-semibold transition duration-300">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Premium Services</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600">We offer comprehensive interior design solutions tailored to your unique needs and preferences.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Residential Design</h3>
+                    <p class="text-gray-600">Transform your home into a sanctuary with our personalized residential design services that reflect your lifestyle.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Commercial Design</h3>
+                    <p class="text-gray-600">Create inspiring work environments that boost productivity and impress clients with our commercial design expertise.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-pencil-ruler text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Space Planning</h3>
+                    <p class="text-gray-600">Optimize your space with intelligent layouts that maximize functionality without compromising on aesthetics.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Color Consultation</h3>
+                    <p class="text-gray-600">Select the perfect color palette that sets the right mood and enhances your space's architectural features.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-couch text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Furniture Selection</h3>
+                    <p class="text-gray-600">Curate furniture pieces that combine comfort, quality, and style to complete your interior vision.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-2xl text-amber-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Lighting Design</h3>
+                    <p class="text-gray-600">Illuminate your space with strategic lighting solutions that enhance ambiance and functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Featured Projects</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600">Explore our portfolio of stunning interior transformations that showcase our design philosophy.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://plus.unsplash.com/premium_photo-1661881385412-8e8a7328ff9a?q=80&w=1994&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Urban Elegance Apartment</h3>
+                        <p class="text-gray-600 mb-4">A contemporary 3BHK apartment with minimalist aesthetics and warm wood accents.</p>
+                        <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">Residential</span>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Luxury Villa" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Serene Luxury Villa</h3>
+                        <p class="text-gray-600 mb-4">A sprawling villa blending modern luxury with natural elements for a tranquil retreat.</p>
+                        <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">Residential</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Corporate Office" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">TechHub Corporate Office</h3>
+                        <p class="text-gray-600 mb-4">An innovative workspace designed to foster creativity and collaboration.</p>
+                        <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">Commercial</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-amber-700 font-semibold hover:text-amber-800">
+                    View Full Portfolio
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Our Team" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Inspire Ambiente</h2>
+                    <div class="w-24 h-1 bg-amber-700 mb-6"></div>
+                    <p class="text-gray-600 mb-6">Founded by Mr. Chary in 2010, Inspire Ambiente has been transforming spaces across Hyderabad with innovative and personalized interior design solutions. Our passion lies in creating environments that are not just visually stunning but also deeply functional and reflective of our clients' personalities.</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">Our Design Philosophy</h3>
+                        <p class="text-gray-600 mb-4">We believe that great design is a perfect balance of form and function. Every space we create tells a unique story through carefully curated materials, textures, and colors.</p>
+                        <p class="text-gray-600">Our approach combines timeless elegance with contemporary sensibilities, ensuring your space remains stylish for years to come.</p>
+                    </div>
+                    
+                    <div class="bg-amber-50 p-6 rounded-lg">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <img class="h-16 w-16 rounded-full" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Mr. Chary">
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold">Mr. Chary</h4>
+                                <p class="text-gray-600">Founder & Lead Designer</p>
+                                <p class="mt-2 text-gray-600">"Our mission is to inspire through design, creating spaces that elevate everyday living."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6">"Inspire Ambiente transformed our home beyond expectations. Their attention to detail and understanding of our needs was exceptional."</p>
+                    <div class="flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya K.">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Priya K.</h4>
+                            <p class="text-gray-300">Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6">"Our office redesign by Inspire Ambiente has significantly improved employee satisfaction and productivity. The space is both functional and inspiring."</p>
+                    <div class="flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul S.">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Rahul S.</h4>
+                            <p class="text-gray-300">Commercial Client</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6">"Working with Mr. Chary and his team was a pleasure. They listened to our ideas and enhanced them with their professional expertise."</p>
+                    <div class="flex items-center">
+                        <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ananya P.">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ananya P.</h4>
+                            <p class="text-gray-300">Residential Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Location</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600">Visit our design studio in the heart of Hyderabad to discuss your project.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.252353417614!2d78.448175415703!3d17.44850398804495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90f578d9bd89%3A0x2a654f5fba290d4a!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1621234567890!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold mb-6">Visit Our Studio</h3>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-map-marker-alt text-amber-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Address</h4>
+                                    <p class="text-gray-600">Design District, Banjara Hills, Hyderabad, Telangana 500034</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-phone-alt text-amber-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <p class="text-gray-600">+91 98765 43210</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-envelope text-amber-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <p class="text-gray-600">chary@example.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-amber-700 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-bold">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold mb-2">Parking Information</h4>
+                            <p class="text-gray-600 mb-4">Ample parking available in the building basement. Please inform reception upon arrival.</p>
+                            
+                            <h4 class="font-bold mb-2">Public Transport</h4>
+                            <p class="text-gray-600">Nearest metro station: Jubilee Hills Check Post (500m walk)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-amber-700 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-600">Ready to transform your space? Contact us for a consultation or to discuss your project ideas.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <form class="contact-form space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="+91 98765 43210">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="What's your project about?">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold mb-6">Consultation Process</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 text-amber-700">
+                                        <span class="font-bold">1</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold">Initial Contact</h4>
+                                    <p class="text-gray-600">Reach out via phone, email, or our contact form to schedule a consultation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 text-amber-700">
+                                        <span class="font-bold">2</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold">Discovery Meeting</h4>
+                                    <p class="text-gray-600">We'll discuss your vision, requirements, budget, and timeline in detail.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 text-amber-700">
+                                        <span class="font-bold">3</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold">Site Visit</h4>
+                                    <p class="text-gray-600">Our team will visit your space to take measurements and assess conditions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 text-amber-700">
+                                        <span class="font-bold">4</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold">Proposal Presentation</h4>
+                                    <p class="text-gray-600">We'll present our design concepts and recommendations for your approval.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-amber-100 text-amber-700">
+                                        <span class="font-bold">5</span>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-bold">Project Execution</h4>
+                                    <p class="text-gray-600">Once approved, we'll bring your design to life with meticulous attention to detail.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-700 hover:text-white transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-700 hover:text-white transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-700 hover:text-white transition duration-300">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-700 hover:bg-amber-700 hover:text-white transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-amber-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">Get design inspiration, tips, and exclusive offers straight to your inbox.</p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+                <button type="submit" class="bg-gray-900 hover:bg-black text-white font-semibold px-6 py-3 rounded-lg transition duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-couch text-2xl text-amber-700 mr-2"></i>
+                        <h3 class="text-xl font-bold">Inspire <span class="text-amber-700">Ambiente</span></h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Creating inspiring spaces that reflect your personality and enhance your lifestyle.</p>
+                    <p class="text-gray-400">© 2023 Inspire Ambiente. All rights reserved.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-amber-400 transition duration-300">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-amber-400 transition duration-300">Projects</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition duration-300">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-amber-400 transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Residential Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Commercial Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Space Planning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Color Consultation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">Lighting Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-amber-400"></i>
+                            <span>Design District, Banjara Hills, Hyderabad</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-amber-400"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-amber-400"></i>
+                            <span>chary@example.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">Designed with <i class="fas fa-heart text-amber-400"></i> by Inspire Ambiente Team</p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active state for navigation links
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Close mobile menu if open
+                if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Update active navigation link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
